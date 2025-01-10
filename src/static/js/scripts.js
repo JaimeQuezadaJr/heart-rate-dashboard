@@ -23,15 +23,51 @@ const renderChart = (data) => {
             datasets: [{
                 label: 'Resting Heart Rate Score',
                 data: scores,
-                borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderWidth: 1
+                borderColor: 'rgba(0, 113, 227, 1)',
+                backgroundColor: 'rgba(0, 113, 227, 0.2)',
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(0, 113, 227, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(0, 113, 227, 1)'
             }]
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: 2, // Adjust this value to control the aspect ratio
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.1)'
+                    },
+                    ticks: {
+                        color: '#1d1d1f'
+                    }
+                },
+                x: {
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.1)'
+                    },
+                    ticks: {
+                        color: '#1d1d1f'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: '#1d1d1f'
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    titleColor: '#fff',
+                    bodyColor: '#fff',
+                    borderColor: 'rgba(0, 113, 227, 1)',
+                    borderWidth: 1
                 }
             }
         }
