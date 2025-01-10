@@ -1,3 +1,6 @@
+let chartType = 'bar';
+let chart;
+
 const fetchData = async () => {
     const response = await fetch('/data');
     const data = await response.json();
@@ -9,8 +12,12 @@ const renderChart = (data) => {
     const labels = data.map(entry => new Date(entry.date).toLocaleDateString());
     const scores = data.map(entry => entry['Resting Heart Rate Score']);
 
-    const chart = new Chart(ctx, {
-        type: 'bar',
+    if (chart) {
+        chart.destroy();
+    }
+
+    chart = new Chart(ctx, {
+        type: chartType,
         data: {
             labels: labels,
             datasets: [{
@@ -30,5 +37,10 @@ const renderChart = (data) => {
         }
     });
 };
+
+document.getElementById('toggleChartType').addEventListener('click', () => {
+    chartType = chartType === 'bar' ? 'line' : 'bar';
+    fetchData().then(data => renderChart(data));
+});
 
 fetchData().then(data => renderChart(data));
