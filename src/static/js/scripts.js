@@ -25,11 +25,14 @@ const renderChart = (data) => {
                 data: scores,
                 borderColor: 'rgba(0, 113, 227, 1)',
                 backgroundColor: 'rgba(0, 113, 227, 0.2)',
-                borderWidth: 2,
+                borderWidth: 1,
                 pointBackgroundColor: 'rgba(0, 113, 227, 1)',
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(0, 113, 227, 1)'
+                pointHoverBorderColor: 'rgba(0, 113, 227, 1)',
+                pointStyle: 'circle', // Change point style to circle
+                pointRadius: 4, // Adjust the size of the points
+                pointHoverRadius: 7 // Adjust the size of the points on hover
             }]
         },
         options: {
